@@ -1,31 +1,23 @@
 import React,{useState,useEffect} from 'react';
 import Message from './Message'
-import { db } from './Firebase/Firebase'
 
-function MessageBoard(){
 
-    const [messages,setMessages]=useState([])
-    let count = 0
+class MessageBoard extends React.Component {
 
-    const fetchBlogs = async() => {
-        const response = db.collection('messages');
-        const data = await response.get();
-        data.docs.forEach(item => {
-            setMessages([...messages,item.data()])
-            count++
-        })
+    state = {
+        messages: this.props.messages
     }
 
-    useEffect(() => {
-        fetchBlogs();
-    }, [])
+    render(){
+        console.log("Message Props", this.props.messages)
+        return(
+            <div>
+                <h1> 🛠 Ladder Message Board</h1>
+                { this.state.messages && this.state.messages.map(msg => <Message text={msg.text}/>)}
+            </div>
+        )
+    }
 
-
-    return(
-        <div>
-            { messages && messages.map(msg => <Message text={msg.text}/>)}
-        </div>
-    )
 
 }
 

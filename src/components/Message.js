@@ -1,7 +1,11 @@
 import React from 'react'
 
 function Message(props){
-    return <p>{props.text}</p>
+    return (
+        <div className = "message">
+            {props.text}
+        </div>
+    )
 }
 
 

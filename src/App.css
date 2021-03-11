@@ -28,6 +28,16 @@
   color: #61dafb;
 }
 
+.message {
+  color: black;
+  border: solid lightgrey 1pt;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 3px;
+  width: 50%;
+  margin-left: 25%;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
