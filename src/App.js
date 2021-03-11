@@ -3,6 +3,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import React from 'react';
 import SignIn from './SignIn'
+import SignOut from './SignOut'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -21,17 +22,20 @@ const firestore = firebase.firestore()
 class App extends React.Component {
   
   state = {
-    user: null
+    user: false
   }
 
-  signInUser = () => {
-    this.setState({user: true})
+  updateUser = () => {
+    console.log('yo')
+    console.log(this.state.user)
+    this.setState({user: !this.state.user})
   }
 
   render(){
     return (
       <div className="App">
-        {this.state.user ? <MessageBoard/> : <SignIn user = {this.state.user} signInUser = {this.signInUser}/>}
+        {this.state.user ? <MessageBoard/> : <SignIn user = {this.state.user} updateUser = {this.updateUser}/>}
+        {this.state.user ? <SignOut user = {this.state.user} updateUser = {this.updateUser}/> : <div> </div>}
       </div>
     );
   }
@@ -39,9 +43,9 @@ class App extends React.Component {
 }
 
 
-function SignOut() {
-  return <div>No</div>
-}
+// function SignOut() {
+//   return <button>Sign Out</button>
+// }
 
 function MessageBoard(){
   return(
