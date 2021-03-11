@@ -2,6 +2,7 @@ import './App.css';
 import firebase from "firebase/app";
 import "firebase/firestore";
 import React from 'react';
+import SignIn from './SignIn'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -30,7 +31,7 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        {this.state.user ? <MessageBoard/> : <SignIn user = {this.state.user} signInUser = {this.state.signInUser}/>}
+        {this.state.user ? <MessageBoard/> : <SignIn user = {this.state.user} signInUser = {this.signInUser}/>}
       </div>
     );
   }
@@ -39,9 +40,7 @@ class App extends React.Component {
 
 
 function SignOut() {
-  return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
-  )
+  return <div>No</div>
 }
 
 function MessageBoard(){
