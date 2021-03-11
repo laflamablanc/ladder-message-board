@@ -2,7 +2,8 @@ import './App.css';
 
 import React from 'react';
 import SignIn from './components/SignIn'
-import SignOut from './SignOut'
+import SignOut from './components/SignOut'
+import MessageBoard from './components/MessageBoard'
 import Firebase from './components/Firebase/Firebase'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
@@ -12,7 +13,6 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 class App extends React.Component {
 
-  firebase = new Firebase()
   
   state = {
     user: false
@@ -32,13 +32,5 @@ class App extends React.Component {
   }
 }
 
-
-function MessageBoard(){
-  return(
-    <div>
-      MessageBoard
-    </div>
-  )
-}
 
 export default App;
