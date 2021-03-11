@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import Message from './Message'
+import MessageBar from './MessageBar'
 
 
 class MessageBoard extends React.Component {
@@ -13,6 +14,7 @@ class MessageBoard extends React.Component {
         return(
             <div>
                 <h1> 🛠 Ladder Message Board</h1>
+                <MessageBar/>
                 { this.state.messages && this.state.messages.map(msg => <Message text={msg.text}/>)}
             </div>
         )

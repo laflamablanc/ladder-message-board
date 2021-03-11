@@ -28,14 +28,44 @@
   color: #61dafb;
 }
 
-.message {
+.Message {
   color: black;
   border: solid lightgrey 1pt;
-  margin: 10px;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 3px;
+  width: 30%;
+  margin-left: 35%;
+}
+
+.MessageBar {
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  border: solid lightgrey 1pt;
+  margin: 15px;
+  padding-top: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 3px;
+  width: 30%;
+  margin-left: 35%;
+}
+
+.MessageBar button{
+  color: white;
+  background-color:#EB4C68;
+  border: none;
+  margin: 1px;
   padding: 10px;
   border-radius: 3px;
-  width: 50%;
-  margin-left: 25%;
+  width: 100px;
+  align-self: flex-end;
+}
+
+.MessageBar input{
+  border: none;
+
 }
 
 @keyframes App-logo-spin {
