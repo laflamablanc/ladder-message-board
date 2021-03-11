@@ -42,15 +42,14 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        {this.state.user ? <MessageBoard messages = {this.state.messages}/> : <SignIn user = {this.state.user} updateUser = {this.updateUser}/>}
         {this.state.user ? <SignOut user = {this.state.user} updateUser = {this.updateUser}/> : <div> </div>}
+        {this.state.user ? <MessageBoard messages = {this.state.messages}/> : <SignIn user = {this.state.user} updateUser = {this.updateUser}/>}
       </div>
     );
   }
 
   componentDidMount(){
     this.fetchMessages()
-
   }
 }
 
