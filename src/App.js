@@ -24,32 +24,48 @@ class App extends React.Component {
     this.setState({user: !this.state.user})
   }
 
-  fetchMessages = () => {
-    const query = db.collection('messages').orderBy('timestamp', 'desc');
-    let messageArray = []
-    query.onSnapshot(function(snapshot){
-      snapshot.docChanges().forEach(function(change){
-        const msg = change.doc.data()
-        messageArray.push(msg)
-      })
-    })
+  addMessage = (msg) => {
     this.setState({
       ...this.state,
-      messages: messageArray
+      messages: [msg, ...this.state.messages]
+    })
+  }
+
+  fetchMessages = (updateState) => {
+    const query = db.collection('messages').orderBy('timestamp', 'desc');
+    let messageArray = []
+    query.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        const msg = change.doc.data()
+        messageArray.push(msg)
+        this.setState({
+          ...this.state,
+          messages: messageArray
+        })
+      })  
     })
   }
 
   render(){
     return (
       <div className="App">
-        {this.state.user ? <SignOut user = {this.state.user} updateUser = {this.updateUser}/> : <div> </div>}
-        {this.state.user ? <MessageBoard messages = {this.state.messages} /> : <SignIn user = {this.state.user} updateUser = {this.updateUser}/>}
+        {this.state.user ? 
+          <SignOut user = {this.state.user} updateUser = {this.updateUser}/> 
+          : 
+          <div> </div>
+        }
+
+        {this.state.user ? 
+          <MessageBoard messages = {this.state.messages} addMessage={this.addMessage}/> 
+          : 
+          <SignIn user = {this.state.user} updateUser = {this.updateUser}/>
+        }
       </div>
     );
   }
 
   componentDidMount(){
-    this.fetchMessages()
+    this.fetchMessages(this.updateState)
   }
 }
 
