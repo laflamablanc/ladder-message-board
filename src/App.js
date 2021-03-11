@@ -1,25 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import firebase from "firebase/app";
+import "firebase/firestore";
+import React from 'react';
 
-function App() {
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useCollectionData } from 'react-firebase-hooks/firestore'
+
+firebase.initializeApp({
+  apiKey: "AIzaSyAn7SbuBhKPMlIh1JjVIRX-lGhODx81ONk",
+  authDomain: "ladder-react-challenge.firebaseapp.com",
+  projectId: "ladder-react-challenge",
+  storageBucket: "ladder-react-challenge.appspot.com",
+  messagingSenderId: "584391455757",
+  appId: "1:584391455757:web:b014c05af9858a58889144"
+})
+
+const firestore = firebase.firestore()
+
+class App extends React.Component {
+  
+  state = {
+    user: null
+  }
+
+  render(){
+    return (
+      <div className="App">
+        {this.state.user? <MessageBoard/> : <SignIn user = {this.state.user}/>}
+      </div>
+    );
+  }
+
+}
+
+function SignIn(props){
+  const signInUser = () => {
+    console.log(props)
+    this.setState({user: true})
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <button onClick= {signInUser}>Sign In </button>
+  )
+}
+
+function MessageBoard(){
+  return(
+    <div>
+      MessageBoard
     </div>
-  );
+  )
 }
 
 export default App;
