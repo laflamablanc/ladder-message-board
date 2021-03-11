@@ -52,7 +52,7 @@
   margin-left: 35%;
 }
 
-.MessageBar button{
+.MessageBar #button{
   color: white;
   background-color:#EB4C68;
   border: none;
@@ -65,8 +65,13 @@
 
 .MessageBar input{
   border: none;
-
+  width: 75%;
 }
+
+.MessageBar input:focus {
+  outline: none;
+}
+
 
 @keyframes App-logo-spin {
   from {
