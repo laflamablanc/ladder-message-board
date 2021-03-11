@@ -1,10 +1,7 @@
 import React from 'react'
 
 function Message(props){
-    const { text, uid } = props.Message
-    
-    return <p>text</p>
-
+    return <p>{props.text}</p>
 }
 
 
