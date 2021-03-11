@@ -1,4 +1,7 @@
 import React from 'react'
+import { db } from './Firebase/Firebase'
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 class MessageBar extends React.Component {
 
@@ -12,7 +15,10 @@ class MessageBar extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        console.log('submit')
+        const messageRef = db.collection('messages').add({
+            text: this.state.messageText,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
         this.setState({messageText:""})
     }
 

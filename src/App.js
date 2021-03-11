@@ -25,7 +25,7 @@ class App extends React.Component {
   }
 
   fetchMessages = () => {
-    const query = db.collection('messages');
+    const query = db.collection('messages').orderBy('timestamp', 'desc');
     let messageArray = []
     query.onSnapshot(function(snapshot){
       snapshot.docChanges().forEach(function(change){
@@ -43,7 +43,7 @@ class App extends React.Component {
     return (
       <div className="App">
         {this.state.user ? <SignOut user = {this.state.user} updateUser = {this.updateUser}/> : <div> </div>}
-        {this.state.user ? <MessageBoard messages = {this.state.messages}/> : <SignIn user = {this.state.user} updateUser = {this.updateUser}/>}
+        {this.state.user ? <MessageBoard messages = {this.state.messages} /> : <SignIn user = {this.state.user} updateUser = {this.updateUser}/>}
       </div>
     );
   }
