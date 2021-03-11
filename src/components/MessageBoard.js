@@ -13,7 +13,7 @@ class MessageBoard extends React.Component {
         console.log("Message Props", this.props.messages)
         return(
             <div>
-                <h1> 🛠 Ladder Message Board</h1>
+                <h1> 🛠  Ladder Message Board</h1>
                 <MessageBar addMessage = {this.props.addMessage}/>
                 { this.state.messages && this.state.messages.map(msg => <Message text={msg.text}/>)}
             </div>

@@ -33,14 +33,12 @@ class App extends React.Component {
 
   fetchMessages = (updateState) => {
     const query = db.collection('messages').orderBy('timestamp', 'desc');
-    let messageArray = []
     query.onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
         const msg = change.doc.data()
-        messageArray.push(msg)
         this.setState({
           ...this.state,
-          messages: messageArray
+          messages: [...this.state.messages, msg]
         })
       })  
     })
