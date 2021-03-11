@@ -1,9 +1,9 @@
 import './App.css';
 
 import React from 'react';
-import SignIn from './SignIn'
+import SignIn from './components/SignIn'
 import SignOut from './SignOut'
-import Firestore from './Firestore'
+import Firebase from './components/Firebase/Firebase'
 
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { useCollectionData } from 'react-firebase-hooks/firestore'
@@ -11,6 +11,8 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 
 
 class App extends React.Component {
+
+  firebase = new Firebase()
   
   state = {
     user: false

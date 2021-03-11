@@ -1,4 +1,3 @@
-import React from 'react'
 import firebase from "firebase/app";
 import "firebase/firestore";
 
@@ -11,12 +10,7 @@ const config = {
     appId: "1:584391455757:web:b014c05af9858a58889144"
 }
 
-class Firebase {
-    constructor(){
-      firebase.initializeApp(config)
-    }
-    
-}
+firebase.initializeApp(config)
 
-export default Firebase
+export const db = firebase.firestore()
   
