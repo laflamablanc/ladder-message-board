@@ -10,11 +10,8 @@ import Firebase from './components/Firebase/Firebase'
 // import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { db } from './components/Firebase/Firebase'
 
-
-
 class App extends React.Component {
 
-  
   state = {
     user: false,
     messages: []
@@ -24,23 +21,24 @@ class App extends React.Component {
     this.setState({user: !this.state.user})
   }
 
+
   fetchMessages = () => {
     const query = db.collection('messages').orderBy('timestamp', 'asc');
-    console.log(query)
-    // query.onSnapshot((snapshot) => {
-    //   snapshot.docChanges().forEach((change) => {
-    //     const msg = change.doc.data()
-    //     console.log(msg)
-    //     this.setState({
-    //       ...this.state,
-    //       messages: [msg, ...this.state.messages]
-    //     })
-    //   })  
-    // })
-  }
+    query.onSnapshot((snapshot) => {
+      snapshot.docChanges().forEach((change) => {
+        const messageObj = {}
+        messageObj.data = change.doc.data()
+        messageObj.id = change.doc.id
+        this.setState({
+          ...this.state,
+          messages: [messageObj, ...this.state.messages]
+        })
+      })  
+    })
+}
 
   render(){
-    console.log(this.state.user)
+    console.log(this.state.messages)
     return (
       <div className="App">
         {this.state.user ? 
@@ -65,3 +63,22 @@ class App extends React.Component {
 
 
 export default App;
+
+
+
+// ---- Creating Duplicates For Some Reason --- 
+
+  // getMessages = () => {
+  //   const messagesArray = []
+  //   const query = db.collection('messages').orderBy('timestamp', 'desc');
+  //   query.get()
+  //   .then((querySnapshot) => {
+  //     querySnapshot.forEach((doc)=>{
+  //       messagesArray.push(doc.data())
+  //     })
+  //   })
+  //   this.setState({
+  //     ...this.state,
+  //     messages: messagesArray
+  //   })
+  // }

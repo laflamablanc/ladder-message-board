@@ -15,11 +15,15 @@ class MessageBar extends React.Component {
 
     submitHandler = (e) => {
         e.preventDefault()
-        const messageRef = db.collection('messages').add({
-            text: this.state.messageText,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-        })
-        this.setState({messageText:""})
+        if (this.state.messageText == ""){
+            alert("Message cannot be blank")
+        } else {
+            const messageRef = db.collection('messages').add({
+                text: this.state.messageText,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            })
+            this.setState({messageText:""})
+        }
     }
 
     render(){

@@ -29,6 +29,7 @@
 }
 
 .Message {
+  display: flex;
   color: black;
   border: solid lightgrey 1pt;
   margin: 15px;
@@ -36,6 +37,14 @@
   border-radius: 3px;
   width: 30%;
   margin-left: 35%;
+
+}
+
+.Message button{
+  margin-left: auto;
+  margin-top: 2%;
+  height: 100%;
+  font-size: 20px;
 }
 
 .MessageBar {
