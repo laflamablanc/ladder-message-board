@@ -24,22 +24,22 @@ class App extends React.Component {
     this.setState({user: !this.state.user})
   }
 
-  addMessage = (msg) => {
-    this.setState({
-      ...this.state,
-      messages: [msg, ...this.state.messages]
-    })
-  }
+  // addMessage = (msg) => {
+  //   this.setState({
+  //     ...this.state,
+  //     messages: [msg, ...this.state.messages]
+  //   })
+  // }
 
 
   fetchMessages = () => {
-    const query = db.collection('messages').orderBy('timestamp', 'desc');
+    const query = db.collection('messages').orderBy('timestamp', 'asc');
     query.onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
         const msg = change.doc.data()
         this.setState({
           ...this.state,
-          messages: [...this.state.messages, msg]
+          messages: [msg, ...this.state.messages]
         })
       })  
     })
@@ -55,7 +55,7 @@ class App extends React.Component {
         }
 
         {this.state.user ? 
-          <MessageBoard messages = {this.state.messages} addMessage={this.addMessage}/> 
+          <MessageBoard messages = {this.state.messages} /> 
           : 
           <SignIn user = {this.state.user} updateUser = {this.updateUser}/>
         }

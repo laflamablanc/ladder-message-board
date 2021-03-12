@@ -21,9 +21,9 @@ class MessageBar extends React.Component {
         })
         .then((docRef) => {
             docRef.get().then((doc) => {
-                if (doc.exists) {
-                    this.props.addMessage(doc.data())
-                }
+                // if (doc.exists) {
+                //     this.props.addMessage(doc.data())
+                // }
             })
         })
         this.setState({messageText:""})
