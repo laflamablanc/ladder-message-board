@@ -24,14 +24,6 @@ class App extends React.Component {
     this.setState({user: !this.state.user})
   }
 
-  // addMessage = (msg) => {
-  //   this.setState({
-  //     ...this.state,
-  //     messages: [msg, ...this.state.messages]
-  //   })
-  // }
-
-
   fetchMessages = () => {
     const query = db.collection('messages').orderBy('timestamp', 'asc');
     query.onSnapshot((snapshot) => {
@@ -46,6 +38,7 @@ class App extends React.Component {
   }
 
   render(){
+    console.log(this.state.user)
     return (
       <div className="App">
         {this.state.user ? 

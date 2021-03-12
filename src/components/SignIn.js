@@ -2,11 +2,14 @@ import React from 'react'
 
 function SignIn(props){
     return (
-        <div className = "Sign-In">
-            <h3> Please Sign in to your Account</h3>
-            <input placeholder = "Enter Username"></input>
-            <input placeholder = "Enter Password" type="password"></input>
-            <button onClick= {props.updateUser}>Sign In </button>
+        <div className = "Sign-In-Page">
+            <h3> Welcome to Ladder!</h3>
+            <h4>Log in to return to the community.</h4>
+            <form className = "Sign-In-Form" onSubmit = {props.updateUser}>
+                <input placeholder = "Enter Email"></input>
+                <input placeholder = "Enter Password" type="password"></input>
+                <input id ='submit' value = 'Submit' type='submit'/>
+            </form>
         </div>
     )
 }

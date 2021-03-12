@@ -19,13 +19,6 @@ class MessageBar extends React.Component {
             text: this.state.messageText,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
-        .then((docRef) => {
-            docRef.get().then((doc) => {
-                // if (doc.exists) {
-                //     this.props.addMessage(doc.data())
-                // }
-            })
-        })
         this.setState({messageText:""})
     }
 

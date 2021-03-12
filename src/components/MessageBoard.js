@@ -8,7 +8,7 @@ function MessageBoard(props) {
     return(
         <div>
             <h1> 🛠  Ladder Message Board</h1>
-            <MessageBar addMessage = {props.addMessage}/>
+            <MessageBar/>
             {props.messages.map(msg => <Message text={msg.text}/>)}
         </div>
     )

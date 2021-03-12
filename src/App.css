@@ -72,11 +72,38 @@
   outline: none;
 }
 
-.Sign-In {
-  background: gray;
-  margin: 25%;
-  padding: 10%;
+.Sign-In-Page{
+  margin: 5% 20%;
+  padding-top: 2%;
+  background-image: url('https://ladder.to/static/media/login-sign-up.fb7f590e.png');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  font-size: 30px;
+}
 
+.Sign-In-Form {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  flex-wrap: wrap;
+  margin-left: 45%;
+  padding: 10%;
+}
+
+.Sign-In-Form input{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.Sign-In-Form #submit{
+  background-color: #63CA69;
+  color: white;
+  border: none;
+  font-size: 20px;
 }
 
 
