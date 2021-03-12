@@ -6,8 +6,8 @@ import SignOut from './components/SignOut'
 import MessageBoard from './components/MessageBoard'
 import Firebase from './components/Firebase/Firebase'
 
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useCollectionData } from 'react-firebase-hooks/firestore'
+// import { useAuthState } from 'react-firebase-hooks/auth'
+// import { useCollectionData } from 'react-firebase-hooks/firestore'
 import { db } from './components/Firebase/Firebase'
 
 
@@ -31,7 +31,8 @@ class App extends React.Component {
     })
   }
 
-  fetchMessages = (updateState) => {
+
+  fetchMessages = () => {
     const query = db.collection('messages').orderBy('timestamp', 'desc');
     query.onSnapshot((snapshot) => {
       snapshot.docChanges().forEach((change) => {
@@ -63,7 +64,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.fetchMessages(this.updateState)
+    this.fetchMessages()
   }
 }
 

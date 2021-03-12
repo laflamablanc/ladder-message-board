@@ -72,6 +72,13 @@
   outline: none;
 }
 
+.Sign-In {
+  background: gray;
+  margin: 25%;
+  padding: 10%;
+
+}
+
 
 @keyframes App-logo-spin {
   from {
