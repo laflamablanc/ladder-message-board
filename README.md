@@ -32,10 +32,8 @@ Enjoy!
   c) Delete Messages (frontend only, doesnt persist to database)
 
 2) How would you change the database structure?
-  I think it would be helpful to log the userid associated with each message. This way you can offer
-  and edit or delete function and check that the user trying to perform those actions is the 
-  owner of the post. 
+  I think it would be helpful to store the UserID associated with each message. This way you can allow users to edit or delete posts that belong to them.
 
-3) I had never seen or worked with Firebase before this challenge so that was definitely the hardest part for me. It took me quite a while to read through all of the documentation and understand what Firebase is, what its benefits are, how to link it to a React database, and what Firestore is and how to interact with it. I wish that some of the other features were enabled such as the realtime database. A lot of the information I found online concerning Firebase and React assumed I had the realtime DB set up so it was pretty difficult to piece together documentation and online resources from a bunch of different sources in order to get this app to work.
+3) I had never seen or worked with Firebase before this challenge so that was definitely the hardest part for me. It took me quite a while to read through all of the documentation and understand what Firebase is, what its benefits are, how to link it to a React database, and what Firestore is and how to interact with it. I wish that some of the other features were enabled such as the Realtime Database. A lot of the information I found online concerning Firebase and React assumed I had the Realtime DB set up so it was pretty difficult to piece together documentation and online resources from a bunch of different sources in order to get this app to work.
 
 4) I thought this was a good challenge. The difficulty for me came from my unfamiliarity with Firebase and not from the challenge itself. 
