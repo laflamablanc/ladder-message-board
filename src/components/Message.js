@@ -1,12 +1,18 @@
 import React from 'react'
 
 function Message(props){
+
+    const clickHandler = (e) => {
+        const msgID = e.target.parentNode.id
+        props.removeMessage(msgID)
+    }
+
     return (
-        <div className = "Message">
+        <div id = {props.id} className = "Message">
             <p>
             {props.text}
             </p>
-            <button>x</button>
+            <button onClick={clickHandler}>x</button>
         </div>
     )
 }

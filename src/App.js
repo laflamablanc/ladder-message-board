@@ -35,7 +35,15 @@ class App extends React.Component {
         })
       })  
     })
-}
+  }
+
+  removeMessage = (msgID) => {
+    const newArray = this.state.messages.filter((msg) => msg.id != msgID)
+    this.setState({
+      ...this.state,
+      messages: newArray
+    })
+  }
 
   render(){
     console.log(this.state.messages)
@@ -48,7 +56,7 @@ class App extends React.Component {
         }
 
         {this.state.user ? 
-          <MessageBoard messages = {this.state.messages} /> 
+          <MessageBoard messages = {this.state.messages} removeMessage = {this.removeMessage} /> 
           : 
           <SignIn user = {this.state.user} updateUser = {this.updateUser}/>
         }
